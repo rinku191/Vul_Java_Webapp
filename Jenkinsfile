@@ -18,7 +18,7 @@ agent any
       sh "mvn clean package"
       }
     }
-    stage("Deploy to Tomcat"){
+    stage("Deploy-To-Tomcat"){
     steps{
     sshagent(["Tomcat"])
       {
