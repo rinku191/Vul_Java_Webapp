@@ -18,6 +18,13 @@ agent any
       sh "mvn clean package"
       }
     }
+    stage("Deploy to Tomcat")
+    steps{
+    sshagent("Tomcat")
+      {
+      scp -o StrictHostKeyChecking=no /target/*.war kali@192.168.25.131:~/Desktop/prod/apache-tomcat-9.0.70/webapps/webapp.war
+      }
+    }
   } 
 }
   
